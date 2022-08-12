@@ -6,7 +6,7 @@ This processing can be done on Linux VMS, in AKV, with containerized Python code
 
 ## Virus Scanning Test
 
-This test scans several (9) representative images for viruses with the open-source ClamAV library.
+This test scans several representative images for viruses with the open-source ClamAV library.
 Processing time on a desktop computer takes 1-2 milliseconds per image.
 
 ```
@@ -18,24 +18,50 @@ clamd version: ClamAV 0.105.1/26625/Fri Aug 12 03:52:45 2022
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7152b.jpeg': ('OK', None)}, milliseconds: 1
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7154.jpeg': ('OK', None)}, milliseconds: 1
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7152.jpeg': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7153.jpeg': ('OK', None)}, milliseconds: 0
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home3.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7153.jpeg': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home3.png': ('OK', None)}, milliseconds: 2
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home2.png': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home1.png': ('OK', None)}, milliseconds: 2
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/sampletext1-ocr-539x450.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home1.png': ('OK', None)}, milliseconds: 1
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home5.png': ('OK', None)}, milliseconds: 2
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home4.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home6.png': ('OK', None)}, milliseconds: 2
 ```
 
 See the ClamAV section below for details about this library, installing it, using it.
-
 
 ## Text Extraction Test
 
 
 
+### Tesseract
+
+- https://pypi.org/project/pytesseract/
+
+### Installing tesseract on macOS
+
+Installation tests are similar on Linux for AKV.
+
+```
+$ brew install tesseract
+- or -
+$ brew install tesseract --all-languages
+
+$ which tesseract
+/usr/local/bin/tesseract
+
+$ tesseract --list-langs
+List of available languages in "/usr/local/share/tessdata/" (3):
+eng
+osd
+snum
+```
 
 ---
 
+###
+
+- https://python-bloggers.com/2022/05/extract-text-from-image-using-python/
 
 ### ClamAV
 

@@ -1,6 +1,7 @@
 """
 Usage:
   python main.py virus_scan img
+  python main.py text_scan img
 Options:
   -h --help     Show this screen.
   --version     Show version.
@@ -21,6 +22,9 @@ import arrow
 import clamd
 
 from docopt import docopt
+
+from PIL import Image
+from pytesseract import pytesseract
 
 from pysrc.env import Env
 from pysrc.fs import FS
@@ -51,18 +55,42 @@ def virus_scan(directory):
     elapsed_ms = finish_ms - start_ms
     print('virus scan result: {}, milliseconds: {}'.format(result, elapsed_ms))
 
+def text_scan(directory):
+  path_to_tesseract_executable = '/usr/local/bin/tesseract'
+  pytesseract.tesseract_cmd = path_to_tesseract_executable
+
+  files = FS.walk(directory)
+  for file in files:
+    abspath = file['abspath']
+    if is_image_file(abspath):
+      start_ms = int(round(time.time() * 1000))
+      img = Image.open(abspath)
+      print(img.size)
+      text = pytesseract.image_to_string(img, lang='eng')
+      print(text)
+      finish_ms = int(round(time.time() * 1000))
+      elapsed_ms = finish_ms - start_ms
+      print("text scan file: {}, text: '{}', milliseconds: {}".format(abspath, text, elapsed_ms))
+
+
+def is_image_file(filename):
+  if filename.endswith('.png'):
+    return True 
+  if filename.endswith('.jpeg'):
+    return True 
+  return False
 
 if __name__ == "__main__":
   if len(sys.argv) > 1:
     func = sys.argv[1].lower()
-    print('func: {}'.format(func))
 
     if func == 'virus_scan':
       directory = sys.argv[2]
       virus_scan(directory)
 
-    elif func == 'xxx':
-      xxx()
+    elif func == 'text_scan':
+      directory = sys.argv[2]
+      text_scan(directory)
 
     else:
         print_options('Error: invalid function: {}'.format(func))

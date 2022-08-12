@@ -10,6 +10,16 @@ clamd==1.0.2
     # via -r requirements.in
 docopt==0.6.2
     # via -r requirements.in
+packaging==21.3
+    # via pytesseract
+pillow==9.2.0
+    # via
+    #   -r requirements.in
+    #   pytesseract
+pyparsing==3.0.9
+    # via packaging
+pytesseract==0.3.9
+    # via -r requirements.in
 python-dateutil==2.8.1
     # via arrow
 six==1.15.0

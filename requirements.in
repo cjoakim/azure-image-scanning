@@ -1,6 +1,12 @@
 # Chris Joakim, Microsoft, 2022/08/12
-# These libraries are sorted alphabetically
 
+# general
 arrow
-clamd
 docopt
+
+# virus scanning
+clamd
+
+# image processing
+pytesseract
+pillow
