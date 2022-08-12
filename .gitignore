@@ -1,3 +1,19 @@
+# cj
+
+# venv files - macOS
+bin/
+include/
+lib/
+lib64/
+man/
+**/pyvenv.cfg
+
+# venv files - win
+Scripts/
+
+tmp/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
