@@ -53,15 +53,18 @@ def virus_scan(directory):
 
 
 if __name__ == "__main__":
-  func = sys.argv[1].lower()
+  if len(sys.argv) > 1:
+    func = sys.argv[1].lower()
+    print('func: {}'.format(func))
 
+    if func == 'virus_scan':
+      directory = sys.argv[2]
+      virus_scan(directory)
 
-  if func == 'virus_scan':
-    directory = sys.argv[2]
-    virus_scan(directory)
+    elif func == 'xxx':
+      xxx()
 
-  elif func == 'xxx':
-    xxx()
-
+    else:
+        print_options('Error: invalid function: {}'.format(func))
   else:
-      print_options('Error: invalid function: {}'.format(func))
+    print_options('Error: no command-line arguments')

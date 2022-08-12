@@ -1,12 +1,13 @@
 # azure-image-scanning
 
-Exploring scanning image files for viruses, text, etc
+Exploring scanning image files for viruses, text, etc.
 
+This processing can be done on Linux VMS, in AKV, with containerized Python code.
 
 ## Virus Scanning Test
 
-This test scans several representative images for viruses with the open-source ClamAV library.
-Processing time on a desktop computer takes 1-2 milliseconds.
+This test scans several (9) representative images for viruses with the open-source ClamAV library.
+Processing time on a desktop computer takes 1-2 milliseconds per image.
 
 ```
 $ python main.py virus_scan img
@@ -14,29 +15,41 @@ $ python main.py virus_scan img
 virus_scan, directory:  img
 connecting to clamd at: /tmp/clamd.socket
 clamd version: ClamAV 0.105.1/26625/Fri Aug 12 03:52:45 2022
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/IMG_7152b.jpeg': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/IMG_7154.jpeg': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/IMG_7152.jpeg': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/IMG_7153.jpeg': ('OK', None)}, milliseconds: 2
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/home3.png': ('OK', None)}, milliseconds: 2
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/home2.png': ('OK', None)}, milliseconds: 2
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/home1.png': ('OK', None)}, milliseconds: 2
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/home5.png': ('OK', None)}, milliseconds: 2
-virus scan result: {'/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/home4.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7152b.jpeg': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7154.jpeg': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7152.jpeg': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7153.jpeg': ('OK', None)}, milliseconds: 0
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home3.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home2.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home1.png': ('OK', None)}, milliseconds: 2
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home5.png': ('OK', None)}, milliseconds: 2
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home4.png': ('OK', None)}, milliseconds: 1
 ```
+
+See the ClamAV section below for details about this library, installing it, using it.
+
+
+## Text Extraction Test
+
+
+
+
+---
+
 
 ### ClamAV
 
 ClamAV® is an open-source antivirus engine for detecting trojans, viruses, malware & other malicious threats.
 
 - https://www.clamav.net
-- https://gist.github.com/mendozao/3ea393b91f23a813650baab9964425b9
-- https://hub.docker.com/r/clamav/clamav
 - https://pypi.org/project/clamd/
+- https://hub.docker.com/r/clamav/clamav
+- https://gist.github.com/mendozao/3ea393b91f23a813650baab9964425b9
+
 
 ### Installing ClamAV and freshclam on macOS
 
-Installation tests are similar on Linux.
+Installation tests are similar on Linux for AKV.
 
 ```
 $ brew install clamav
