@@ -57,7 +57,13 @@ def virus_scan(directory):
 
 def text_scan(directory):
   path_to_tesseract_executable = '/usr/local/bin/tesseract'
-  pytesseract.tesseract_cmd = path_to_tesseract_executable
+  # If tesseract isn't on the PATH, you can point to the executable like this:
+  #pytesseract.tesseract_cmd = path_to_tesseract_executable
+  # tesseract --print-parameters
+  # brew info tesseract
+  #  /usr/local/Cellar/tesseract/5.2.0
+  # https://nanonets.com/blog/ocr-with-tesseract/
+  # https://pyimagesearch.com/2021/11/15/tesseract-page-segmentation-modes-psms-explained-how-to-improve-your-ocr-accuracy/
 
   files = FS.walk(directory)
   for file in files:
@@ -65,12 +71,12 @@ def text_scan(directory):
     if is_image_file(abspath):
       start_ms = int(round(time.time() * 1000))
       img = Image.open(abspath)
-      print(img.size)
-      text = pytesseract.image_to_string(img, lang='eng')
-      print(text)
+      custom_config = r'-l eng --psm 6'
+      text = pytesseract.image_to_string(img, config=custom_config, timeout=2.0)
       finish_ms = int(round(time.time() * 1000))
       elapsed_ms = finish_ms - start_ms
-      print("text scan file: {}, text: '{}', milliseconds: {}".format(abspath, text, elapsed_ms))
+      print("text scan file: {}, size: {}, text: '{}', milliseconds: {}".format(
+        abspath, img.size, text, elapsed_ms))
 
 
 def is_image_file(filename):

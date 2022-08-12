@@ -46,6 +46,7 @@ Installation tests are similar on Linux for AKV.
 $ brew install tesseract
 - or -
 $ brew install tesseract --all-languages
+$ brew install tesseract-lang
 
 $ which tesseract
 /usr/local/bin/tesseract
