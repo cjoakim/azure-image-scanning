@@ -3,6 +3,7 @@
 Exploring scanning image files for viruses, text, etc.
 
 This processing can be done on Linux VMS, in AKV, with containerized Python code.
+Initial exploration done on macOS.
 
 ## Virus Scanning Test
 
