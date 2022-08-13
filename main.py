@@ -10,7 +10,7 @@ Options:
 __author__  = 'Chris Joakim'
 __email__   = "chjoakim@microsoft.com"
 __license__ = "MIT"
-__version__ = "2022/08/12"
+__version__ = "2022/08/13"
 
 import base64
 import json
@@ -80,13 +80,15 @@ def text_scan(directory):
       rect_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (18, 18))
       dilation = cv2.dilate(thresh1, rect_kernel, iterations = 1)
       contours, hierarchy = cv2.findContours(dilation, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+      image_text = ''
       for cnt in contours:
         x, y, w, h = cv2.boundingRect(cnt)
         rect = cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cropped = img[y:y + h, x:x + w]
-        custom_config = r'-l eng'  # '-l eng --psm 6'
-        text = pytesseract.image_to_string(cropped)  # (cropped, config=custom_config, timeout=5.0)
-        print("text scan file: {}, text: '{}'".format(abspath, text))
+        #custom_config = r'-l eng'  # '-l eng --psm 6'
+        cropped_text = pytesseract.image_to_string(cropped)  # (cropped, config=custom_config, timeout=1.0)
+        image_text = image_text + cropped_text.replace("\n",'').replace('_','').strip()
+      print("text scan file: {}, text: '{}'".format(abspath, image_text))
 
       # custom_config = r'-l eng --psm 6'
       # text = pytesseract.image_to_string(grayImg, config=custom_config, timeout=2.0)

@@ -32,7 +32,22 @@ See the ClamAV section below for details about this library, installing it, usin
 
 ## Text Extraction Test
 
-
+```
+$ python main.py text_scan img
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7152b.jpeg, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154.jpeg, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7152.jpeg, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7153.jpeg, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.jpeg, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home3.png, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home2.png, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/sampletext1-ocr-539x450.png, text: 'Sample Text'
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home1.png, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home5.png, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.png, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home4.png, text: ''
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home6.png, text: 'Today is Friday'
+```
 
 ### Tesseract
 
