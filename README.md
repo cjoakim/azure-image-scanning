@@ -38,6 +38,9 @@ See the ClamAV section below for details about this library, installing it, usin
 
 - https://pypi.org/project/pytesseract/
 
+- (Sat) https://www.geeksforgeeks.org/text-detection-and-extraction-using-opencv-and-ocr/ 
+
+
 ### Installing tesseract on macOS
 
 Installation tests are similar on Linux for AKV.

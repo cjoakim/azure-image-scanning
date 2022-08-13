@@ -8,5 +8,6 @@ docopt
 clamd
 
 # image processing
+opencv-python
 pytesseract
 pillow
