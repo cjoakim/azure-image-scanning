@@ -12,21 +12,26 @@ Processing time on a desktop computer takes 1-2 milliseconds per image.
 
 ```
 $ python main.py virus_scan img
-
 virus_scan, directory:  img
 connecting to clamd at: /tmp/clamd.socket
 clamd version: ClamAV 0.105.1/26625/Fri Aug 12 03:52:45 2022
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7152b.jpeg': ('OK', None)}, milliseconds: 1
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7154.jpeg': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/.DS_Store': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.pxm': ('OK', None)}, milliseconds: 3
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home6.pxm': ('OK', None)}, milliseconds: 4
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7152.jpeg': ('OK', None)}, milliseconds: 1
 virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7153.jpeg': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home3.png': ('OK', None)}, milliseconds: 2
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home2.png': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/sampletext1-ocr-539x450.png': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home1.png': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home5.png': ('OK', None)}, milliseconds: 2
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home4.png': ('OK', None)}, milliseconds: 1
-virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home6.png': ('OK', None)}, milliseconds: 2
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.jpeg': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home3.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home2.png': ('OK', None)}, milliseconds: 2
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/sampletext1-ocr-539x450.png': ('OK', None)}, milliseconds: 0
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home1.png': ('OK', None)}, milliseconds: 3
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home5.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home4.png': ('OK', None)}, milliseconds: 2
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home6.png': ('OK', None)}, milliseconds: 1
+virus scan result: {'/Users/cjoakim/github/azure-image-scanning/img/home6.jpg': ('OK', None)}, milliseconds: 1
 ```
 
 See the ClamAV section below for details about this library, installing it, using it.
@@ -35,19 +40,20 @@ See the ClamAV section below for details about this library, installing it, usin
 
 ```
 $ python main.py text_scan img
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7152b.jpeg, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154.jpeg, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7152.jpeg, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7153.jpeg, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.jpeg, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/home3.png, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/home2.png, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/sampletext1-ocr-539x450.png, text: 'Sample Text'
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/home1.png, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/home5.png, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.png, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/home4.png, text: ''
-text scan file: /Users/cjoakim/github/azure-image-scanning/img/home6.png, text: 'Today is Friday'
+
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7152b.jpeg, text: '' in 191 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154.jpeg, text: '' in 481 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7152.jpeg, text: '' in 184 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7153.jpeg, text: '' in 183 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.jpeg, text: '' in 473 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home3.png, text: '' in 264 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home2.png, text: '' in 410 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/sampletext1-ocr-539x450.png, text: 'Sample Text' in 303 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home1.png, text: '' in 272 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home5.png, text: '' in 441 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/IMG_7154_edited.png, text: '' in 190 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home4.png, text: '' in 296 milliseconds
+text scan file: /Users/cjoakim/github/azure-image-scanning/img/home6.png, text: 'Today is Friday' in 443 milliseconds
 ```
 
 ### Tesseract

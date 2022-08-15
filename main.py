@@ -88,7 +88,9 @@ def text_scan(directory):
         #custom_config = r'-l eng'  # '-l eng --psm 6'
         cropped_text = pytesseract.image_to_string(cropped)  # (cropped, config=custom_config, timeout=1.0)
         image_text = image_text + cropped_text.replace("\n",'').replace('_','').strip()
-      print("text scan file: {}, text: '{}'".format(abspath, image_text))
+      finish_ms = int(round(time.time() * 1000))
+      elapsed_ms = finish_ms - start_ms
+      print("text scan file: {}, text: '{}' in {} milliseconds".format(abspath, image_text, elapsed_ms))
 
       # custom_config = r'-l eng --psm 6'
       # text = pytesseract.image_to_string(grayImg, config=custom_config, timeout=2.0)
