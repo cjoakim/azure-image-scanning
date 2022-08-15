@@ -180,7 +180,7 @@ You should now be able to scan a file by doing:
 $ clamdscan /some/location/myfile.txt
 
 $ clamdscan home5.png
-/Users/cjoakim/github/cj-ms/gbb/customers/conduent/pyplay/img/home5.png: OK
+/Users/cjoakim/github/azure-image-scanning/img/home5.png: OK
 
 ----------- SCAN SUMMARY -----------
 Infected files: 0
